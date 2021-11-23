@@ -1,6 +1,6 @@
 #pragma once
 
-enum Commands
+enum Command
 {
 	List,
 	Add,
