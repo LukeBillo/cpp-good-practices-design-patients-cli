@@ -5,7 +5,7 @@ PatientsCSVRepository::PatientsCSVRepository() : PatientsRepository()
 	
 }
 
-std::vector<Patient> PatientsCSVRepository::ReadAll()
+std::vector<Patient> PatientsCSVRepository::List()
 {
 	return std::vector<Patient>();
 }

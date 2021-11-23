@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="patients-cli.cpp" />
+    <ClCompile Include="PatientsCLI.cpp" />
+    <ClCompile Include="PatientsCSVRepository.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandParser.h" />
+    <ClInclude Include="Patient.h" />
+    <ClInclude Include="PatientsCSVRepository.h" />
+    <ClInclude Include="PatientsRepository.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
