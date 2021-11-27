@@ -2,8 +2,11 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
+#include <sstream>
 #include "PatientsRepository.h"
 #include "Command.h"
+#include "AddPatientArgs.h"
+#include "TrimUtility.h"
 
 std::map<std::string, Command> CommandMapping = {
 	{ "list", Command::List },
@@ -12,18 +15,35 @@ std::map<std::string, Command> CommandMapping = {
 	{ "quit", Command::Quit }
 };
 
-Command Parse(std::string command)
+std::tuple<Command, std::string> Parse(std::string command)
 {
-	std::transform(command.begin(), command.end(), command.begin(), [](unsigned char c) { return std::tolower(c); });
-	auto iterator = CommandMapping.find(command);
+	std::istringstream commandInputStream(command);
+	std::string commandWithoutArgs;
+	std::string commandArgs;
+
+	commandInputStream >> commandWithoutArgs;
+	std::getline(commandInputStream, commandArgs);
+
+	std::transform(commandWithoutArgs.begin(), commandWithoutArgs.end(), commandWithoutArgs.begin(), [](unsigned char c) { return std::tolower(c); });
+	auto iterator = CommandMapping.find(commandWithoutArgs);
 
 	return iterator == CommandMapping.end() ?
-		Command::Invalid :
-		iterator->second;
+		std::make_tuple(Command::Invalid, "") :
+		std::make_tuple(iterator->second, commandArgs);
 }
 
-bool IsValid(std::string command)
+AddPatientArgs GetAddCommandArgs(std::string args)
 {
-	Command parsedCommand = Parse(command);
-	return parsedCommand != Command::Invalid;
+	std::istringstream argumentsStream(args);
+
+	std::string firstName;
+	std::string secondName;
+	std::string medicalInformation;
+
+	argumentsStream >> firstName >> secondName;
+	std::getline(argumentsStream, medicalInformation);
+
+	medicalInformation = TrimWhitespaceAndApostrophes(medicalInformation);
+
+	return AddPatientArgs(firstName, secondName, medicalInformation);
 }
