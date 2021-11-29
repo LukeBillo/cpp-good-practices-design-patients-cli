@@ -78,6 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -147,6 +148,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandParser.h" />
     <ClInclude Include="csv.h" />
+    <ClInclude Include="DeletePatientArgs.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="PatientsCSVRepository.h" />
     <ClInclude Include="PatientsRepository.h" />

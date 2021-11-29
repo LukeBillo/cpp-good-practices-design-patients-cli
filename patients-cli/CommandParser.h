@@ -6,6 +6,7 @@
 #include "PatientsRepository.h"
 #include "Command.h"
 #include "AddPatientArgs.h"
+#include "DeletePatientArgs.h"
 #include "TrimUtility.h"
 
 std::map<std::string, Command> CommandMapping = {
@@ -46,4 +47,13 @@ AddPatientArgs GetAddCommandArgs(std::string args)
 	medicalInformation = TrimWhitespaceAndApostrophes(medicalInformation);
 
 	return AddPatientArgs(firstName, secondName, medicalInformation);
+}
+
+DeletePatientArgs GetDeleteCommandArgs(std::string args)
+{
+	std::istringstream argumentsStream(args);
+	int id;
+
+	argumentsStream >> id;
+	return DeletePatientArgs(id);
 }
