@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include "CommandParser.h"
-#include "PatientsCSVRepository.h"
+#include "InMemoryPatientsRepository.h"
 
 void PrintHelp()
 {
@@ -18,7 +18,7 @@ void PrintHelp()
 
 int main()
 {
-	PatientsRepository* repository = new PatientsCSVRepository();
+	PatientsRepository* repository = new InMemoryPatientsRepository();
 
 	Command command = Command::Invalid;
 	std::string args = "";
