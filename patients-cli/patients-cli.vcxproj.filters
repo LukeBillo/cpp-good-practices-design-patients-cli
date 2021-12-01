@@ -24,6 +24,9 @@
     <ClCompile Include="PatientsCLI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InMemoryPatientsRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PatientsRepository.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DeletePatientArgs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InMemoryPatientsRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InMemoryPatientsRepository.cpp" />
     <ClCompile Include="PatientsCLI.cpp" />
     <ClCompile Include="PatientsCSVRepository.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="CommandParser.h" />
     <ClInclude Include="csv.h" />
     <ClInclude Include="DeletePatientArgs.h" />
+    <ClInclude Include="InMemoryPatientsRepository.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="PatientsCSVRepository.h" />
     <ClInclude Include="PatientsRepository.h" />
