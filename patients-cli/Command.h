@@ -1,8 +1,10 @@
 #pragma once
 
-enum Command
+enum class Command
 {
+	Invalid,
 	List,
 	Add,
-	Delete
+	Delete,
+	Quit
 };
